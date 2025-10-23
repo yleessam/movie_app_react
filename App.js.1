@@ -1,0 +1,34 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+
+const foodILike = [
+  {id:1, name:'Kimchi', rating:5, image: "https://m.health.chosun.com/site/data/img_dir/2021/09/01/2021090100998_0.jpg"},
+  {id:2, name:'Spagetti', rating:4.9, image:"https://sahubconn001.blob.core.windows.net/ct-sahubconn001/img/newshop/goods/028206/028206_1.jpg"},
+  {id:3, name:'Bibimbob', rating:4.8, image:"https://i.ytimg.com/vi/8B0ZZlsQy3E/maxresdefault.jpg"},
+  {id:4, name:'Ddukbokki', rating:5, image:"https://img.daily.co.kr/@files/www.daily.co.kr/content/food/2024/20240730/a6b91d6073fa51a56d2519e8c4eb3235.jpg"},
+];
+
+function App() {
+  return (<div>
+    <h1>Hello</h1> ylee!!!
+    {foodILike.map(dish => (<Food key={dish.id} name={dish.name}  rating={dish.rating} picture={dish.image}/>))}
+    </div>);
+}
+
+function Food({name, picture, rating}) {
+  console.log(name);
+  return (
+    <div>
+      <h2>I love {name}~ </h2>
+      <h4>{rating}/5.0</h4>
+      <img src={picture} alt={name} />
+    </div>
+  );
+}
+Food.propTypes = {
+  name: PropTypes.string.isRequired,
+  picture: PropTypes.string.isRequired,
+  rating: PropTypes.number,
+};
+
+export default App;
